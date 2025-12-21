@@ -1,4 +1,5 @@
 #include <gtest/gtest.h>
+#include "StringHelper.h"
 
 class StringHelperTest: public ::testing::Test {
 public:
@@ -16,18 +17,15 @@ protected:
     }
 };
 
+TEST_F(StringHelperTest, basic_strip_function_ok) {
+    using namespace StringHelper;
+    str test1 = "   Hello, World!  \n";
+    str test2 = "\t\tTest String\t";
+    str test3 = "NoWhitespace";
+    str test4 = "     \n\t   ";
 
-TEST_F(StringHelperTest, simple_add_function_ok) {
-    EXPECT_EQ(2 + 2, 4);
-    EXPECT_NE(1, 0);
-    EXPECT_TRUE(true);
-    EXPECT_FALSE(false);
-}
-
-TEST_F(StringHelperTest, simple_sub_function_ok) {
-    ASSERT_EQ(5 - 3, 2);
-    ASSERT_NE(10, 5);
-    ASSERT_TRUE(1);
-    ASSERT_FALSE(0);
-    ASSERT_FALSE(true);
+    EXPECT_EQ(strip(test1), "Hello, World!");
+    EXPECT_EQ(strip(test2), "Test String");
+    EXPECT_EQ(strip(test3), "NoWhitespace");
+    EXPECT_EQ(strip(test4), "");
 }

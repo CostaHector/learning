@@ -195,3 +195,37 @@ Names newbie or tester depends on the executable defined in CMakeLists.txt
 ![newbie](imgs/image-5.png)
 
 ![tester](imgs/image-6.png)
+
+
+## .gitusage
+
+```sh
+ssh-keygen -t ed25519 -C "hancosta@outlook.com"
+cat ~/.ssh/id_ed25519.pub
+git config --global user.email "hancosta@outlook.com"
+git config --global user.name "hancosta"
+git config -l
+
+# work with github existed compository
+git clone git@github.com:CostaHector/learning.git
+
+# …or create a new repository on the command line
+echo "# learning" >> README.md
+git init
+git add README.md
+git commit -m "first commit"
+git branch -M master
+git remote add origin git@github.com:CostaHector/learning.git
+git push -u origin master
+
+# …or push an existing repository from the command line
+git remote add origin git@github.com:CostaHector/learning.git
+git branch -M master
+git push -u origin master
+```
+
+
+## Refactor googletest
+
+
+

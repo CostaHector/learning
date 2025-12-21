@@ -16,8 +16,13 @@ target_include_directories(newbie_lib PUBLIC
     ${HEADER_PATHS}
 )
 
-add_executable(newbie main.cpp)
-target_link_libraries(newbie PRIVATE newbie_lib)
-target_include_directories(newbie PRIVATE
-    ${HEADER_PATHS}
-)
+option(BUILD_NEWBIE "Build the newbie executable" ON)
+message(NOTICE "BUILD_NEWBIE=${BUILD_NEWBIE}")
+
+if (BUILD_NEWBIE)
+    add_executable(newbie main.cpp)
+    target_link_libraries(newbie PRIVATE newbie_lib)
+    target_include_directories(newbie PRIVATE
+        ${HEADER_PATHS}
+    )
+endif()

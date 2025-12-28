@@ -5,7 +5,7 @@
 #include <string>
 namespace StringHelper {
     using str = std::string;
-    str& strip(str& input) {
+    inline str& strip(str& input) {
         static constexpr char WHITE_CHARS_ARRAY[] {" \t\n\r"};
         size_t start = input.find_first_not_of(WHITE_CHARS_ARRAY);
         size_t end = input.find_last_not_of(WHITE_CHARS_ARRAY);

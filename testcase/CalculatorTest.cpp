@@ -1,19 +1,13 @@
-#include <gtest/gtest.h>
+#include "TestHelper.h"
 
-class CalculatorTest: public ::testing::Test {
+class CalculatorTest: public TestHelper {
 public:
-    static void SetUpTestSuite() {};
-    static void TearDownTestSuite() {};
-    
-protected:
-    void SetUp() override {
-        // Code here will be called immediately after the constructor (right
-        // before each test).
-    }
-    void TearDown() override {
-        // Code here will be called immediately after each test (right
-        // before the destructor).
-    }
+    static void SetUpTestSuite() {
+        printf("set up CalculatorTest\n");
+    };
+    static void TearDownTestSuite() {
+        printf("tear down CalculatorTest\n");
+    };
 };
 
 TEST_F(CalculatorTest, simple_add_function_ok) {

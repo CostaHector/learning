@@ -24,12 +24,12 @@ Keywords=vscode;
 ### Clion related
 ```sh
 cd /usr/share/applications
-cat > clion.desktop << "EOF"
+cat > clion.desktop << EOF
 [Desktop Entry]
 Name=CLion
 Comment=CLion IDE
-Exec=/home/costa/Downloads/clion-2025.3.1/bin/clion.sh
-Icon=/home/costa/Downloads/clion-2025.3.1/bin/clion.png
+Exec=${HOME}/Downloads/clion-2025.3.1/bin/clion.sh
+Icon=${HOME}/Downloads/clion-2025.3.1/bin/clion.png
 Terminal=false
 Type=Application
 Categories=Development;IDE;
@@ -44,12 +44,12 @@ cp /usr/share/applications/clion.desktop ~/Desktop/
 
 ```sh
 cd /usr/share/applications/
-sudo cat > clash.desktop << "EOF"
+sudo cat > clash.desktop << EOF
 [Desktop Entry]
 Name=Clash
 Comment=Clash from mymonocloud.com
-Exec="/home/costa/Downloads/Clash for Windows-0.20.39-x64-linux/cfw"
-Icon="/home/costa/Downloads/Clash for Windows-0.20.39-x64-linux/cfw.png"
+Exec="${HOME}/Downloads/Clash for Windows-0.20.39-x64-linux/cfw"
+Icon="${HOME}/Downloads/Clash for Windows-0.20.39-x64-linux/cfw.png"
 Terminal=false
 Type=Application
 Categories=Development;IDE;
@@ -229,3 +229,9 @@ git push -u origin master
 
 
 
+# 设置 core 文件生成到当前目录
+cat /proc/sys/kernel/core_pattern
+|/usr/share/apport/apport -p%p -s%s -c%c -d%d -P%P -u%u -g%g -F%F -- %E
+systemctl status apport.service
+
+echo "core.%e.%p.%t" | sudo tee /proc/sys/kernel/core_pattern
